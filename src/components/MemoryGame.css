@@ -1,0 +1,15 @@
+/* src/components/MemoryGame.css */
+.memory-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 10px;
+  }
+  
