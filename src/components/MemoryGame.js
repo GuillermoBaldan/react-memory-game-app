@@ -7,7 +7,7 @@ const cardImages = [
   { src: '/img/A9-Agera-RS.jpg', matched: false },
   { src: '/img/Arese RH95 Vento D´Oro.jpg', matched: false },
   { src: '/img/aston-martin-vantage-gt4.jpg', matched: false },
-  { src: '/img/Ford Mustang.jpg', matched: false },
+  { src: '/img/camaro.jpg', matched: false },
   { src: '/img/Bugatti Chiron.jpg', matched: false },
   { src: '/img/Ford Mustang.jpg', matched: false }, // Verifica si este nombre de archivo es intencionado o si debería ser diferente
 ];
