@@ -3,14 +3,13 @@ import Card from './Card';
 import './MemoryGame.css';
 
 const cardImages = [
-  { src: '/img/A9-Agera-RS.jpg', matched: false },
-  { src: '/img/Arese RH95 Vento D´Oro.jpg', matched: false },
-  { src: '/img/aston-martin-vantage-gt4.jpg', matched: false },
-  { src: '/img/camaro.jpg', matched: false },
-  { src: '/img/Bugatti Chiron.jpg', matched: false },
-  { src: '/img/Ford Mustang.jpg', matched: false },
-];
-
+    { src: process.env.PUBLIC_URL + '/img/A9-Agera-RS.jpg', matched: false },
+    { src: process.env.PUBLIC_URL + '/img/Arese RH95 Vento D´Oro.jpg', matched: false },
+    { src: process.env.PUBLIC_URL + '/img/aston-martin-vantage-gt4.jpg', matched: false },
+    { src: process.env.PUBLIC_URL + '/img/camaro.jpg', matched: false },
+    { src: process.env.PUBLIC_URL + '/img/Bugatti Chiron.jpg', matched: false },
+    { src: process.env.PUBLIC_URL + '/img/Ford Mustang.jpg', matched: false },
+  ];
 function shuffleArray(array) {
   return array.sort(() => Math.random() - 0.5);
 }

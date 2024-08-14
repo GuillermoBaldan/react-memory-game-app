@@ -4,7 +4,7 @@ import './Card.css';
 
 const Card = ({ card, handleChoice, flipped, disabled }) => {
   const handleClick = () => {
-    if (!disabled && !flipped) {
+    if (!disabled) {
       handleChoice(card);
     }
   };
@@ -13,7 +13,7 @@ const Card = ({ card, handleChoice, flipped, disabled }) => {
     <div className="card">
       <div className={flipped ? 'flipped' : ''}>
         <img className="front" src={card.src} alt="Car" />
-        <img className="back" src="/img/card.jpeg" alt="Card Back" onClick={handleClick} />
+        <img className="back" src={process.env.PUBLIC_URL + '/img/card.jpeg'} alt="Card Back" onClick={handleClick} />
       </div>
     </div>
   );
