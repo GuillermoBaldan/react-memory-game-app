@@ -1,4 +1,3 @@
-// src/components/MemoryGame.js
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import './MemoryGame.css';
@@ -9,7 +8,7 @@ const cardImages = [
   { src: '/img/aston-martin-vantage-gt4.jpg', matched: false },
   { src: '/img/camaro.jpg', matched: false },
   { src: '/img/Bugatti Chiron.jpg', matched: false },
-  { src: '/img/Ford Mustang.jpg', matched: false }, // Verifica si este nombre de archivo es intencionado o si debería ser diferente
+  { src: '/img/Ford Mustang.jpg', matched: false },
 ];
 
 function shuffleArray(array) {
@@ -18,10 +17,12 @@ function shuffleArray(array) {
 
 const MemoryGame = () => {
   const [cards, setCards] = useState([]);
+  const [turns, setTurns] = useState(0);
   const [firstChoice, setFirstChoice] = useState(null);
   const [secondChoice, setSecondChoice] = useState(null);
   const [disabled, setDisabled] = useState(false);
 
+  // Mezcla y duplica las cartas
   useEffect(() => {
     const shuffledCards = shuffleArray([...cardImages, ...cardImages]).map(card => ({ ...card, id: Math.random() }));
     setCards(shuffledCards);
@@ -41,6 +42,7 @@ const MemoryGame = () => {
     if (firstChoice && secondChoice) {
       setDisabled(true);
       if (firstChoice.src === secondChoice.src) {
+        // Si coinciden
         setCards(prevCards => {
           return prevCards.map(card => {
             if (card.src === firstChoice.src) {
@@ -52,6 +54,7 @@ const MemoryGame = () => {
         });
         resetTurn();
       } else {
+        // Si no coinciden, reiniciar después de 1 segundo
         setTimeout(() => resetTurn(), 1000);
       }
     }
@@ -60,6 +63,7 @@ const MemoryGame = () => {
   const resetTurn = () => {
     setFirstChoice(null);
     setSecondChoice(null);
+    setTurns(prevTurns => prevTurns + 1);
     setDisabled(false);
   };
 
@@ -68,7 +72,7 @@ const MemoryGame = () => {
       <div className="card-grid">
         {cards.map(card => (
           <Card 
-            key={card.id} 
+            key={card.id}
             card={card} 
             handleChoice={handleChoice} 
             flipped={card === firstChoice || card === secondChoice || card.matched} 
